@@ -35,10 +35,11 @@ as well as mRNA capture beads to capture cells in a droplet and sequence their m
 Ambient RNA, a phenomenon in which cells do not survive dissociation and prematurely release mRNA prior to droplet capture. Doublets in which
 multiple cells may be captured in a droplet. Lastly low-quality or non-viable cells which should be excluded from analysis. Ambient RNA decontamination 
 will be done using CellBender (Fleming et al, 2023) which is a command-line tool in estimating ambient RNA contamination. Seurat will then input the matrix generated from
-CellBender for further quality control. Threee key summary statistics will be plotted for visualization of cell quality, these three are, the amount of 
+CellBender for further quality control. Three key summary statistics will be plotted for visualization of cell quality, these three are the amount of 
 genes expressed per cell, the total counts per cell, and the mitochondrial expression percentage per cell (cell viability). These will be plotted individually
 via the ViolinPlot function in Seurat to show distributions. To visualize them jointly ggplot2 will be used to create a scatter plot. Cells that 
-show low genes expressed per cell, low total counts that are not biologically relevant will be removed. Further cells with high mitochondrial percentages
+show low genes expressed per cell, low total counts that are not biologically relevant will be removed, this implies that downstream analysis will be done
+before and after QC to allow biological variation to drive quality control rather than numerical cut-offs set by plot visualization. Furthermore cells with high mitochondrial percentages
 will be removed. Next a doublet finder algorithm, scDblFinder (Germain et al, 2022),  will be used to account for doublets, while one could assume doublets would be double the 
 distribution of typical counts per cell, this is not always the case and where a doubletfinder shines. The data will then be normalized to account for 
 sequencing depth, then the top 100-2000 variable genes (depending on dataset) will then be selected for downstream analysis. Dimensionality reduction will then
@@ -47,10 +48,12 @@ cluster together. The low-dimensional space is then visualized via an algorithm 
 of interest can be viewed via feature plot in Seurat, a gene search with Isl1 will show clusters related to motor neurons, as Isl1 is differentially and highly expressed in 
 motor neuron populations. To label cells CellTypist (Dominguez et al, 2022) a package in Python will be applied. This package has various reference datasets, such as developing mouse brain,
 this can then be used to use the lab data as a query to the CellTypist developing mouse brain reference dataset to then label the query dataset based on the reference dataset.
+To ensure we truly have the best quality cells, cells will then be subclustered based on celltypes to then find any remaining outliers not initially obvious in original QC.
 To create a transcriptomic atlas all samples must be merged together in one low-dimensional space. This can be challenging due to what is known
 as the "batch effect" this occurs when two similar samples are processed differently. An example of this is single cell and single nuclei, the same celltypes between them 
 may cluster separately due to the sourcing of mRNA causing this batch effect. To combat this we propose using a deep learning algorithm, scDREAMER (Shree et al, 2023), in brevity 
 this algorithm takes datasets of different conditions such as single cell and single nuclei and tries to create a low-dimensional space invariant of that condition.
+To ensure cells and nuclei properly integrated, this metadata will be plotted on UMAP space to show if colocalization was achieved between these conditions. 
 After atlas creation the cells relating to the ocular motor neurons will then be extracted and analyzed separately. scDREAMER will then be used on the ocular motor neurons
 to find unique subclusters and those subclusters will then be used for differential gene expression testing in R using MAST (Finak et al, 2015) to find unique markers that can then be 
 verified for anatomical expression in the Allen Brain Atlas. Differentially expressed genes will also be visualized using pheatmap (Kolde, 2018) in R. 
