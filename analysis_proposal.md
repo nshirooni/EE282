@@ -1,7 +1,7 @@
-## Analysis Proposal for EE282 Final Project
+# Analysis Proposal for EE282 Final Project
 Author: Nima Shirooni
 
-# Introduction
+## Introduction
 Motor neurons are key celltypes in the transmission of signals from the brain and spinal cord to target muscles/glands.
 The developmental landscape of motor neurons are yet to be fully discovered, particularly more work has been done on development 
 of motor neurons in the spinal cord compared to motor neurons in the developing brainstem. While the biological aspect 
@@ -15,7 +15,7 @@ We propose to use the following data to create a transcriptomic atlas of the dev
 the short-term goal and the scope of the proposal is to study the motor neurons that mediate eye movement in the brainstem, the oculomotor neurons. These datasets are yet to be 
 published but this work would be towards a publisable analysis and release of these datasets to any interested researcher.
 
-# Goals
+## Goals
 The key datasets for analysis will be all single cell/nuclei RNA-sequencing datasets from E9.5-E18.5, and 
 bulk RNA-seq datasets from E11.5. The first goal is to integrate all sc/snRNA-sequencing datasets
 and extract clusters related to the ocular motor neurons. The second goal is to analyze each ocular motor neuron in isolation and detect 
@@ -29,7 +29,7 @@ more genetic markers.
 The first goal will involve dealing with the preprocessing (Quality Control), cell type identification, and batch integration 
 of the sc/snRNA-sequencing data in which this data is formatted as a gene by cell counts matrix. 
 For this goal both Python and R will be utilized through their 
-respective bioinformatics analysis platforms, Scanpy (Wolf et al, 2018) and Seurat (Hao et al, 2023).
+respective bioinformatics analysis platforms, Scanpy (Wolf et al, 2018) and Seurat (Hao et al, 2023) and maintained via conda.
 The datasets were generated utilizing 10X Droplet Sequencing in which a microfluidics chamber with oil releases cells from suspension
 as well as mRNA capture beads to capture cells in a droplet and sequence their mRNA's. Three key factors are indicated in quality control,
 Ambient RNA, a phenomenon in which cells do not survive dissociation and prematurely release mRNA prior to droplet capture. Doublets in which
@@ -59,7 +59,7 @@ CellRanger, these datasets will be aligned and then used for analysis. Full-leng
 will be analyzed in similar fashion to the single cell data. Bulk-Seq data will be compared against each ocular motor neuron through differential gene expression testing 
 using DeSEQ2 (Love et al, 2014) in R and visualized with pheatmap. 
 
-# Conclusion
+## Conclusion
 The proposed analysis is integral to the understanding of the vast diversity and heterogeneity of motor neurons in the brainstem, in this case the ocular motor neurons. 
 This work will also help in the future analyses of the other motor neuron populations as well. Initial work has already been set to establish this pipeline and the 
 direction of it is clear, making this a feasible task. Once a pipeline is established the majority of the rest of the work is in it's biological discovery through
@@ -67,7 +67,7 @@ differential gene expression testing and use of the Allen Brain Atlas. Utilizing
 free-gpu cluster will be especially helpful for deep-learning applications. This project will help establish an effective pipeline for any transcriptomic work
 done beyond this proposal and eventually be used to publish a full thorough analysis of brainstem motor neurons in development.
 
-# References 
+## References 
 Allen Institute for Brain Science (2004). Allen Mouse Brain Atlas [Developing Mouse Brain]. Available from mouse.brain-map.org.Allen Institute for Brain Science (2011).
 Allen Reference Atlas – Mouse Brain [brain atlas]. Available from atlas.brain-map.org.
 
