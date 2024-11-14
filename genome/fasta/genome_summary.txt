@@ -1,0 +1,3 @@
+baseCount	143726002
+nBaseCount	1152978
+seqCount	1870
