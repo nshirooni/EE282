@@ -2,7 +2,7 @@
 
 ## Summarize Genome Assembly
 
-To complete the following task of summarizing the genome assembly the following code which was used will be located in the **code** folder of this repository. The following script "**hw3_genome_summary.sh**" will complete the task. The data and outputs are located in the **data** folder with the path **/genome/fasta**. The complete code is shown below:
+To complete the following task of summarizing the genome assembly the following code which was used will be located in the **code** folder of this repository. The following script "**hw3_genome_summary.sh**" will complete the task. The data and outputs are located in the **genome** folder with the path **/genome/fasta**. The complete code is shown below:
 
 ```{bash}
 srun -A class_ee282 --pty bash -i
@@ -64,7 +64,7 @@ seqCount        1870
 
 ## Summarize an Annotation File
 
-To complete the following task of summarizing an annotation file the following code which was used will be located in the **code** folder of this repository. The following script "**hw3_annotation_summary.sh**" will complete the task. The data and outputs are located in the **data** folder with the path **/genome/gtf**. The complete code is shown below:
+To complete the following task of summarizing an annotation file the following code which was used will be located in the **code** folder of this repository. The following script "**hw3_annotation_summary.sh**" will complete the task. The data and outputs are located in the **genome** folder with the path **/genome/gtf**. The complete code is shown below:
 
 ```{bash}
 srun -A class_ee282 --pty bash -i
