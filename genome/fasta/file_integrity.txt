@@ -1,0 +1,1 @@
+dmel-all-chromosome-r6.60.fasta.gz: OK
