@@ -106,7 +106,7 @@ ggplot(data.frame(lengths = lengths), aes(x = lengths)) +
   ) 
 ```
 
-![](https://hpc3.rcic.uci.edu/biojhub4/user/nshiroon/rstudio/graphics/2beeac0c-e9e2-4e09-870f-c6bab80f9733.png)
+![](sequence_length_less_100.png)
 
 ### Plotting GC content distribution
 
@@ -140,7 +140,7 @@ ggplot(gc_data, aes(x = V2)) +
   ) 
 ```
 
-![](https://hpc3.rcic.uci.edu/biojhub4/user/nshiroon/rstudio/graphics/fb509ef6-6890-4ba6-9e22-7a16f80bcd40.png)
+![](gc_content_greater.png)
 
 Now for sequences less than or equal to 100kb
 
@@ -164,7 +164,7 @@ ggplot(gc_data, aes(x = V2)) +
 
 ```
 
-![](https://hpc3.rcic.uci.edu/biojhub4/user/nshiroon/rstudio/graphics/24406a05-ba29-4e1f-8ff8-50267ff3a87a.png)
+![](gc_content_less.png)
 
 ### CDF plots
 
@@ -178,7 +178,7 @@ bioawk -c fastx '{ print length($seq) }' dmel_greater_100.fasta.gz \
   plotCDF2 cumulative_seq_sizes_greater_100.length plot_cdf_greater_100.png
 ```
 
-![](https://hpc3.rcic.uci.edu/biojhub4/user/nshiroon/rstudio/files/genome/fasta/plot_cdf_greater_100.png)
+![](plot_cdf_greater_100.png)
 
 Then lastly for sizes equal to or less than 100kb
 
@@ -190,7 +190,7 @@ bioawk -c fastx '{ print length($seq) }' dmel_less_100.fasta.gz \
   plotCDF2 cumulative_seq_sizes_less_100.length plot_cdf_less_100.png
 ```
 
-![](https://hpc3.rcic.uci.edu/biojhub4/user/nshiroon/rstudio/files/genome/fasta/plot_cdf_less_100.png)
+![](plot_cdf_less_100.png)
 
 ## Part 2: Genome Assembly
 
@@ -276,7 +276,7 @@ rm tmp/{dmelscaff,dmelctg,iso1ctg}_fifo
 
 From that we get the following plot
 
-![](https://hpc3.rcic.uci.edu/biojhub4/user/nshiroon/rstudio/files/CDF.png)
+![](CDF_for_all.png)
 
 #### Calculating BUSCO scores
 
