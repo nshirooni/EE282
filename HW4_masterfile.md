@@ -83,7 +83,7 @@ ggplot(data.frame(lengths = lengths), aes(x = lengths)) +
   ) 
 ```
 
-![](https://hpc3.rcic.uci.edu/biojhub4/user/nshiroon/rstudio/graphics/94fa675b-9c7f-49da-9de5-89b0fe431520.png)
+![](sequence_length_greater_100.png)
 
 Now for smaller than or equal to 100kb
 
