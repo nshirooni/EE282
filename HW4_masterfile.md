@@ -66,12 +66,11 @@ bioawk -c fastx '{print $name, length($seq)}' dmel_less_100.fasta.gz > sequence_
 For plotting it is now required to load up R to make use of ggplot2 for a histogram distribution, first for sequences greater than 100kb:
 
 ```{r}
-data <- read.table("~/genome/fasta/sequence_lengths_greater.txt", header = FALSE)
-lengths <- data$V2
-
 library(ggplot2)
 library(scales)
 
+data <- read.table("~/genome/fasta/sequence_lengths_greater.txt", header = FALSE)
+lengths <- data$V2
 ggplot(data.frame(lengths = lengths), aes(x = lengths)) +
   geom_histogram(bins = 50, fill = "skyblue", color = "black") +
   scale_x_log10(
